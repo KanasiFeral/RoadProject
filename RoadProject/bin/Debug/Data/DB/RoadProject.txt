@@ -1,0 +1,153 @@
+create database RoadProject;
+use RoadProject;
+
+create table TYPE_ROAD
+(
+	iIdTypeRoad int not null primary key,
+	vTypeName varchar(100) not null
+);
+
+create table ROAD_DIRECTION
+(
+	iIdRoadDirection int not null primary key,
+	vDirection varchar(100) not null,
+	vDistance varchar(100) not null
+);
+
+create table ROAD_COMPOSITION
+(
+	iIdRoadComposition int not null primary key,
+	vComposition varchar(255) not null
+);
+
+create table ROAD
+(
+	iIdRoad int not null primary key,
+	vName varchar(100) not null,
+	vOpenDate varchar(25) not null,
+	vCloseDate varchar(25) not null,
+	fk_iIdTypeRoad int not null,
+	fk_iIdRoadDirection int not null,
+	fk_iIdRoadComposition int not null,
+	FOREIGN KEY (fk_iIdTypeRoad) REFERENCES TYPE_ROAD(iIdTypeRoad),
+	FOREIGN KEY (fk_iIdRoadDirection) REFERENCES ROAD_DIRECTION(iIdRoadDirection),
+	FOREIGN KEY (fk_iIdRoadComposition) REFERENCES ROAD_COMPOSITION(iIdRoadComposition)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE
+);
+
+create table EQUIPMENT_TYPE
+(	
+	iIdEquipmentType int not null primary key,
+	vTypeName varchar(100) not null,
+	vAppoinment varchar(255) not null
+);
+
+create table MANUFACTURER
+(
+	iIdManufacturer int not null primary key,
+	vName varchar(100) not null,
+	vCountry varchar(100) not null,
+	vCreateDate varchar(100) not null
+);
+
+create table LOCATION
+(
+	iIdLocation int not null primary key,
+	vLocation varchar(255) not null
+);
+
+create table DEPARTMENTS
+(
+	iIdDepartments int not null primary key,
+	vName varchar(100) not null,
+	vAddress varchar(100) not null,
+	fk_iIdLocation int not null,
+	FOREIGN KEY (fk_iIdLocation) REFERENCES LOCATION(iIdLocation)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE 
+);
+
+create table EQUIPMENT
+(
+	iIdEquipment int not null primary key,
+	vName varchar(100) not null,
+	fk_iIdEquipmentType int not null,
+	fk_iIdManufacturer int not null,
+	fk_iIdLocation int not null,
+	fk_iIdDepartments int not null,
+	FOREIGN KEY (fk_iIdEquipmentType) REFERENCES EQUIPMENT_TYPE(iIdEquipmentType),
+	FOREIGN KEY (fk_iIdManufacturer) REFERENCES MANUFACTURER(iIdManufacturer),
+	FOREIGN KEY (fk_iIdLocation) REFERENCES LOCATION(iIdLocation),
+	FOREIGN KEY (fk_iIdDepartments) REFERENCES DEPARTMENTS(iIdDepartments)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE
+);
+
+create table ROAD_STATUS
+(
+	iIdRoadStatus int not null primary key,
+	vStatus varchar(100) not null,
+	vDescribe varchar(100) not null,
+	fk_iIdRoad int not null,
+	FOREIGN KEY (fk_iIdRoad) REFERENCES ROAD(iIdRoad)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE
+);
+
+create table TYPE_IMPORTANT_PLACES
+(
+	iIdTypeImportantPlaces int not null primary key,
+	vTypeName varchar(100) not null,
+	vPrioity varchar(100) not null
+);
+
+create table IMPORTANT_PLACES
+(
+	iIdImportantPlaces int not null primary key,
+	vName varchar(100) not null,
+	vDescribe varchar(255) not null,
+	fk_iIdRoad int not null,
+	fk_iIdTypeImportantPlaces int not null,
+	FOREIGN KEY (fk_iIdRoad) REFERENCES ROAD(iIdRoad),
+	FOREIGN KEY (fk_iIdTypeImportantPlaces) REFERENCES TYPE_IMPORTANT_PLACES(iIdTypeImportantPlaces)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE
+);
+
+create table ROAD_BRIGADE
+(
+	iIdRoadBrigade int not null primary key,
+	vName varchar(100) not null,
+	vDescribe varchar(100) not null
+);
+
+create table WORK_STAFF
+(
+	iIdWorkStaff int not null primary key,
+	vFIO varchar(255) not null,
+	vPosition varchar(100) not null,
+	vPhone varchar(25) not null,
+	vAddress varchar(100) not null,
+	vExperience varchar(100) not null,
+	fk_iIdDepartments int not null,
+	fk_iIdRoadBrigade int not null,
+	FOREIGN KEY (fk_iIdDepartments) REFERENCES DEPARTMENTS(iIdDepartments),
+	FOREIGN KEY (fk_iIdRoadBrigade) REFERENCES ROAD_BRIGADE(iIdRoadBrigade)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE 
+);
+
+create table ROAD_ORDER
+(
+	iIdRoadOrder int not null primary key,
+	vName varchar(100) not null,
+	vDate varchar(25) not null,
+	vStatus varchar(25) not null,
+	fk_iIdRoadBrigade int not null,
+	fk_iIdRoad int not null,
+	FOREIGN KEY (fk_iIdRoadBrigade) REFERENCES ROAD_BRIGADE(iIdRoadBrigade),
+	FOREIGN KEY (fk_iIdRoad) REFERENCES ROAD(iIdRoad)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE
+);

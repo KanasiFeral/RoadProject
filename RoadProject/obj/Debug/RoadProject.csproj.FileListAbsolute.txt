@@ -1,0 +1,11 @@
+E:\Работы на заказ по программированию\Работы на заказ(БГУиР)\C#\Андрей Годун\RoadProject\RoadProject\bin\Debug\RoadProject.exe.config
+E:\Работы на заказ по программированию\Работы на заказ(БГУиР)\C#\Андрей Годун\RoadProject\RoadProject\obj\Debug\RoadProject.csprojResolveAssemblyReference.cache
+E:\Работы на заказ по программированию\Работы на заказ(БГУиР)\C#\Андрей Годун\RoadProject\RoadProject\obj\Debug\RoadProject.Main.resources
+E:\Работы на заказ по программированию\Работы на заказ(БГУиР)\C#\Андрей Годун\RoadProject\RoadProject\obj\Debug\RoadProject.Properties.Resources.resources
+E:\Работы на заказ по программированию\Работы на заказ(БГУиР)\C#\Андрей Годун\RoadProject\RoadProject\obj\Debug\RoadProject.csproj.GenerateResource.Cache
+E:\Работы на заказ по программированию\Работы на заказ(БГУиР)\C#\Андрей Годун\RoadProject\RoadProject\bin\Debug\RoadProject.exe
+E:\Работы на заказ по программированию\Работы на заказ(БГУиР)\C#\Андрей Годун\RoadProject\RoadProject\bin\Debug\RoadProject.pdb
+E:\Работы на заказ по программированию\Работы на заказ(БГУиР)\C#\Андрей Годун\RoadProject\RoadProject\obj\Debug\RoadProject.exe
+E:\Работы на заказ по программированию\Работы на заказ(БГУиР)\C#\Андрей Годун\RoadProject\RoadProject\obj\Debug\RoadProject.pdb
+E:\Работы на заказ по программированию\Работы на заказ(БГУиР)\C#\Андрей Годун\RoadProject\RoadProject\obj\Debug\RoadProject.Settings.resources
+E:\Работы на заказ по программированию\Работы на заказ(БГУиР)\C#\Андрей Годун\RoadProject\RoadProject\obj\Debug\RoadProject.SplashScrean.resources
